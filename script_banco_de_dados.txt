@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS cadastro_clientes;
+
+USE cadastro_clientes;
+
+CREATE TABLE clientes (
+    cpf VARCHAR(11) PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    telefone VARCHAR(20),
+    cidade VARCHAR(50)
+);
+
+CREATE TABLE produtos (
+    codigo_barras VARCHAR(20) PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    valor_unitario DECIMAL(10,2) NOT NULL,
+    quantidade INT NOT NULL
+);
+
+CREATE TABLE funcionarios (
+    id_funcionario INT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    telefone VARCHAR(20),
+    cargo VARCHAR(50),
+    salario DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE compras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cpf_cliente VARCHAR(14),
+    codigo_barras_produto VARCHAR(50),
+    id_funcionario INT,
+    quantidade INT,
+    valor_total DECIMAL(10,2),
+    nota_fiscal VARCHAR(20)
+);
